@@ -7,7 +7,7 @@ export const ItemDetail = ({productSelected, onAdd}) => {
 <h2>{productSelected.title}</h2>
  {}
 <CounterContainer stock={productSelected.stock} onAdd={onAdd} />
-<button onClick={()=> onAdd(productSelected)}>Agregar al carrito</button>
+
     </div>
   )
 }
