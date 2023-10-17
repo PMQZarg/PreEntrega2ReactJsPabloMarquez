@@ -9,21 +9,15 @@ import ResponsiveAppBar from "./Components/Layout/navBar2/NavBar2";
 import { useState } from "react";
 import ItemDetailContainer from "./Components/Pages/itemDetailContainer/ItemDetailContainer";
 import { ItemDetail } from "./Components/Pages/itemDetailContainer/ItemDetail";
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 
 
 function App() {
-  const [montar, setMontar] = useState (false)
+
   return (
     <>
     <ResponsiveAppBar/>
-  
-    <button onClick={()=>setMontar(!montar)}>Montar/desmontar</button>
-
-{
-  montar &&  <CounterContainer stock={0}/>
-}
-
-<ItemListContainer/>
+  <ItemListContainer/>
 <ItemDetailContainer/>
     <ThemeProvider theme = {customTheme}>
  

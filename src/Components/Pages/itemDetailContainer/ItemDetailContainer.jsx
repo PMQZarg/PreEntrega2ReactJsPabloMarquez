@@ -19,18 +19,17 @@ const getProduct = new Promise ((resolve, reject)=>{
  //reject("error")
 });
 
-getProduct.then((res)=> setProductSelected(res)).catch((err)=> console.log(err))
- 
+getProduct.then((res)=> setProductSelected(res)).catch((err)=> console.log(err));
+ }, [id]);
 
-}, [id]);
 const onAdd = (cantidad)=> {
   let obj ={
     ...productSelected, quantity: cantidad,
   };
-console.log("este es el producto que se agrega", obj);
-
-return <ItemDetail productSelected={productSelected}/>;
+console.log("se agregó al carrito", obj);
 }
+return <ItemDetail productSelected={productSelected} onAdd={onAdd}/>;
+
 }
 
 export default ItemDetailContainer;
