@@ -14,30 +14,35 @@ import MenuItem from '@mui/material/MenuItem';
 
 import CardMedia from '@mui/material/CardMedia';
 import CartWidget from '../../Common/cartWidget/CartWidget';
+import { Outlet, Link } from 'react-router-dom'; 
 
-const pages = ['Productos', 'Servicios', 'Sobre mi'];
 
 
-function ResponsiveAppBar() {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-  
-    const handleOpenNavMenu = (event) => {
-      setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event) => {
-      setAnchorElUser(event.currentTarget);
-    };
-  
-    const handleCloseNavMenu = () => {
-      setAnchorElNav(null);
-    };
-  
-    const handleCloseUserMenu = () => {
-      setAnchorElUser(null);
-    };
+const pages = ['Productos', 'Servicios'];
+
+export const NavBar = ()=> {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
 
   return (
+    <>
+
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -57,11 +62,12 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
+            <Link to = {"/"}>
             <CardMedia component="img"
           height="35"
           image="https://res.cloudinary.com/diwok5a0s/image/upload/v1695773085/Logo_PMQZ4_100x100_ywhdbd.png" alt="PMQZ Logotipo"/>
-             Ecommerce
-            
+            <h5>Ecommerce</h5> 
+             </Link>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -141,6 +147,11 @@ function ResponsiveAppBar() {
       </Container>
      
     </AppBar>
+    
+
+<Outlet/>
+    </>
   );
-}
-export default ResponsiveAppBar;
+  
+ };
+
