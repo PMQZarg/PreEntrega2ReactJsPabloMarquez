@@ -14,11 +14,12 @@ import MenuItem from '@mui/material/MenuItem';
 
 import CardMedia from '@mui/material/CardMedia';
 import CartWidget from '../../Common/cartWidget/CartWidget';
+  
 import { Outlet, Link } from 'react-router-dom'; 
 
 
 
-const pages = ['Productos', 'Servicios'];
+const pages = ['Ecommerce','Productos', 'Servicios'];
 
 export const NavBar = ()=> {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -64,9 +65,9 @@ export const NavBar = ()=> {
           >
             <Link to = {"/"}>
             <CardMedia component="img"
-          height="35"
+          height="50" 
           image="https://res.cloudinary.com/diwok5a0s/image/upload/v1695773085/Logo_PMQZ4_100x100_ywhdbd.png" alt="PMQZ Logotipo"/>
-            <h5>Ecommerce</h5> 
+            
              </Link>
           </Typography>
 
@@ -79,6 +80,7 @@ export const NavBar = ()=> {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
+              
               <MenuIcon />
             </IconButton>
             <Menu
@@ -101,7 +103,9 @@ export const NavBar = ()=> {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center">
+                    <Link style={{textDecoration:"none", color:"white"}} to ={`/${page}`}>{page}</Link>
+                    </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -123,10 +127,11 @@ export const NavBar = ()=> {
               textDecoration: 'none',
             }}
           >
+            <Link to = {"/"}>
             <CardMedia component="img"
-          height="35"
+          height="50"
           image="https://res.cloudinary.com/diwok5a0s/image/upload/v1695773085/Logo_PMQZ4_100x100_ywhdbd.png" alt="PMQZ Logotipo"/>
-             Ecommerce
+          </Link>  
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -135,7 +140,7 @@ export const NavBar = ()=> {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                <Link style={{textDecoration:"none", color:"white"}} to ={`/${page}`}>{page}</Link>
               </Button>
             ))}
           </Box>
