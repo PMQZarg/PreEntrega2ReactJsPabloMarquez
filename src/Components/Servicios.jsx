@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import { Outlet, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const Servicios = () => {
   return (
-    <div>Servicios</div>
-  )
-}
+    <div>
+      
+    </div>
+  );
+};
 
-export default Servicios
+export default Servicios;

@@ -9,10 +9,10 @@ const  ItemListContainer = ()=> {
 const [items, setItems] = useState([]);
 
 const {categoryName} = useParams ();
-console.log(categoryName ? "filtro" : "ahora estoy en casita");
+console.log(categoryName ? "filtro" : "Estoy en mi home que es Ecommerce");
 
  useEffect( ()=>{
-const productosFiltrados = products.filter( product => product.category === "categoryName")
+const productosFiltrados = products.filter( product => product.category === categoryName)
   const tarea = new Promise ((resolve, reject) => { 
     resolve( categoryName ? productosFiltrados:products);
   });

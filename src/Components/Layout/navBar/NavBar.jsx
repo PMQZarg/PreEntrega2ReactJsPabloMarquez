@@ -19,7 +19,8 @@ import { Outlet, Link } from 'react-router-dom';
 
 
 
-const pages = ['Ecommerce','Productos', 'Servicios'];
+const pages = ['Productos', 'Servicios'];
+const settings = ['Ecommerce'];
 
 export const NavBar = ()=> {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -101,10 +102,21 @@ export const NavBar = ()=> {
                 display: { xs: 'block', md: 'none' },
               }}
             >
+{settings.map((setting) => (
+                <Button
+                key={setting}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <Link style={{textDecoration:"none", color:"blue"}} to ={`/${setting}`}>{setting}</Link>
+              </Button>
+              ))}
+
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">
-                    <Link style={{textDecoration:"none", color:"white"}} to ={`/${page}`}>{page}</Link>
+                  
+                  <Typography textAlign="center" sx={{ my: 2, color: 'white', display: 'block' }}>
+                    <Link style={{textDecoration:"none", color:"blue"}} to ={`/category/${page}`}>{page}</Link>
                     </Typography>
                 </MenuItem>
               ))}
@@ -134,13 +146,24 @@ export const NavBar = ()=> {
           </Link>  
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+
+          {settings.map((setting) => (
+                <Button
+                key={setting}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <Link style={{textDecoration:"none", color:"white"}} to ={`/${setting}`}>{setting}</Link>
+              </Button>
+              ))}
+            
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                <Link style={{textDecoration:"none", color:"white"}} to ={`/${page}`}>{page}</Link>
+                <Link style={{textDecoration:"none", color:"white"}} to ={`/category/${page}`}>{page}</Link>
               </Button>
             ))}
           </Box>

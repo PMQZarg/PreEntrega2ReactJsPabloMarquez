@@ -1,17 +1,15 @@
-import React from 'react'
+import React from "react";
 
 import { Outlet, Link } from "react-router-dom";
 
 const Productos = () => {
   return (
-    <div>
-      <Link to="/category/Productos">
+   <>
+   <div>
+   
+    </div>
+    </>
+  );
+};
 
-      </Link>
-      
-      
-      Productos</div>
-  )
-}
-
-export default Productos
+export default Productos;
